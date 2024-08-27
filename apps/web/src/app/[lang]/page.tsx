@@ -15,7 +15,7 @@ export default async function HomePage() {
           </h2>
         </Link>
       ))}
-      <div>Random server value: ${random.value}</div>
+      <div>Random server value: {random.value}</div>
     </div>
   );
 }
