@@ -17,3 +17,18 @@ export async function fetchConfig() {
   }
   return (await resp.json()) as Config;
 }
+
+export async function fetchRandomValue() {
+  const resp = await fetch(`${Resource.ConfigLambda.url}/random`, {
+    cache: "force-cache",
+    next: {
+      tags: ["random"],
+      revalidate: 60 * 60, // every hour
+    },
+  });
+  if (!resp.ok) {
+    console.log(await resp.text());
+    throw new Error("API error");
+  }
+  return (await resp.json()) as { value: number };
+}

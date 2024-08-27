@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { fetchConfig } from "../../api";
+import { fetchConfig, fetchRandomValue } from "../../api";
 import { SUPPORTED_LANGS } from "../../i18n";
 
 export default async function HomePage() {
   const config = await fetchConfig();
+  const random = await fetchRandomValue();
 
   return (
     <div>
@@ -14,6 +15,7 @@ export default async function HomePage() {
           </h2>
         </Link>
       ))}
+      <div>Random server value: ${random.value}</div>
     </div>
   );
 }
