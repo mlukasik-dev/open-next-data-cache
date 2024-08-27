@@ -9,13 +9,19 @@ export default async function HomePage() {
   return (
     <div>
       {SUPPORTED_LANGS.map((lang) => (
-        <Link href={`${lang}/hello`} prefetch={false}>
-          <h2 style={{ color: config.colorMap[lang] }} key={lang}>
-            {lang}
-          </h2>
+        <Link href={`${lang}/hello`} prefetch={false} key={lang}>
+          <h2 style={{ color: config.colorMap[lang] }}>{lang}</h2>
         </Link>
       ))}
-      <div>Random server value: {random.value}</div>
+      <span
+        style={{
+          position: "absolute",
+          top: 10,
+          left: 10,
+        }}
+      >
+        Random server value: <strong>{random.value}</strong>
+      </span>
     </div>
   );
 }

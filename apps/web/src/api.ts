@@ -20,7 +20,6 @@ export async function fetchConfig() {
 
 export async function fetchRandomValue() {
   const resp = await fetch(`${Resource.ConfigLambda.url}/random`, {
-    cache: "force-cache",
     next: {
       tags: ["random"],
       revalidate: 60 * 60, // every hour

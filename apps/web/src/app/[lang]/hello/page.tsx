@@ -14,7 +14,15 @@ export default async function HelloPage({
       <h1 style={{ color: config.colorMap[lang] }}>
         {getHelloWorldGreeting(lang)}
       </h1>
-      <div>Random server value: ${random.value}</div>
+      <span
+        style={{
+          position: "absolute",
+          top: 10,
+          left: 10,
+        }}
+      >
+        Random server value: <strong>{random.value}</strong>
+      </span>
     </div>
   );
 }
